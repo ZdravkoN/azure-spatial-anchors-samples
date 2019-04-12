@@ -26,6 +26,10 @@ namespace SharingService.Data.EntityFramework.SqlServer.Migrations
                         .HasColumnName("id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Key")
+                        .IsRequired()
+                        .HasColumnName("key");
+
                     b.Property<double?>("Latitude")
                         .HasColumnName("latitude");
 

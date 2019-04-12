@@ -1181,6 +1181,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "SharingService.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "compile": {
+          "bin/placeholder/SharingService.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SharingService.Data.dll": {}
+        }
       }
     }
   },
@@ -4417,13 +4427,19 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "SharingService.Data/1.0.0": {
+      "type": "project",
+      "path": "../SharingService.Data/SharingService.Data.csproj",
+      "msbuildProject": "../SharingService.Data/SharingService.Data.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "Microsoft.IdentityModel.Clients.ActiveDirectory >= 4.5.1",
       "Microsoft.NETCore.App >= 2.2.0",
-      "Newtonsoft.Json >= 12.0.1"
+      "Newtonsoft.Json >= 12.0.1",
+      "SharingService.Data >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -4455,7 +4471,11 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\workspace\\unity\\azure-spatial-anchors-samples\\Sharing\\SharingService.Data\\SharingService.Data.csproj": {
+              "projectPath": "C:\\workspace\\unity\\azure-spatial-anchors-samples\\Sharing\\SharingService.Data\\SharingService.Data.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -9,7 +9,8 @@
       "SharingService.Core/1.0.0": {
         "dependencies": {
           "Microsoft.IdentityModel.Clients.ActiveDirectory": "4.5.1",
-          "Newtonsoft.Json": "12.0.1"
+          "Newtonsoft.Json": "12.0.1",
+          "SharingService.Data": "1.0.0"
         },
         "runtime": {
           "SharingService.Core.dll": {}
@@ -649,6 +650,11 @@
           "System.Xml.ReaderWriter": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0"
         }
+      },
+      "SharingService.Data/1.0.0": {
+        "runtime": {
+          "SharingService.Data.dll": {}
+        }
       }
     }
   },
@@ -1091,6 +1097,11 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "SharingService.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

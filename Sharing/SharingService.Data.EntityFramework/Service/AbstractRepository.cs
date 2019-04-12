@@ -26,27 +26,27 @@ namespace SharingService.Data.EntityFramework.Service
 
         protected abstract void CopyProperties(TModel source, TModel destination);
 
-        public virtual Task<List<TModel>> All()
+        public virtual Task<List<TModel>> AllAsync()
         {
             return GetDbSet().ToListAsync();
         }
 
-        public virtual Task<TModel> GetById(int id)
+        public virtual Task<TModel> GetByIdAsync(int id)
         {
             return GetDbSet().Where(p => p.Id == id).FirstOrDefaultAsync();
         }
 
-        public virtual Task<List<TModel>> GetByIds(List<int> ids)
+        public virtual Task<List<TModel>> GetByIdsAsync(List<int> ids)
         {
             return GetDbSet().Where(p => ids.Contains(p.Id)).ToListAsync();
         }
 
-        public virtual async Task Save(TModel item)
+        public virtual async Task SaveAsync(TModel item)
         {
             var toSave = item;
             if (item.Id > 0)
             {
-                toSave = await GetById(item.Id);
+                toSave = await GetByIdAsync(item.Id);
                 CopyProperties(item, toSave);
             }
             else
@@ -57,20 +57,20 @@ namespace SharingService.Data.EntityFramework.Service
             await Context.SaveChangesAsync();
         }
 
-        public virtual async Task Edit(TModel item)
+        public virtual async Task EditAsync(TModel item)
         {
             if (item.Id > 0)
             {
-                var toSave = await GetById(item.Id);
+                var toSave = await GetByIdAsync(item.Id);
                 CopyProperties(item, toSave);
             }
 
             await Context.SaveChangesAsync();
         }
 
-        public virtual async Task Delete(int id)
+        public virtual async Task DeleteAsync(int id)
         {
-            var item = await GetById(id);
+            var item = await GetByIdAsync(id);
             if (item != null)
             {
                 GetDbSet().Remove(item);
@@ -81,7 +81,7 @@ namespace SharingService.Data.EntityFramework.Service
 
         public virtual async Task Delete(List<int> ids)
         {
-            var items = await GetByIds(ids);
+            var items = await GetByIdsAsync(ids);
             if (items != null && items.Count > 0)
             {
                 GetDbSet().RemoveRange(items);
@@ -90,7 +90,7 @@ namespace SharingService.Data.EntityFramework.Service
             await Context.SaveChangesAsync();
         }
 
-        public virtual Task<List<TModel>> Filter(Expression<Func<TModel, bool>> filter)
+        public virtual Task<List<TModel>> FilterAsync(Expression<Func<TModel, bool>> filter)
         {
             if (filter == null)
             {

@@ -7,3 +7,6 @@ C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Core\obj
 C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Core\bin\Debug\netcoreapp2.2\SharingService.Core.pdb
 C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Core\obj\Debug\netcoreapp2.2\SharingService.Core.dll
 C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Core\obj\Debug\netcoreapp2.2\SharingService.Core.pdb
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Core\bin\Debug\netcoreapp2.2\SharingService.Data.dll
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Core\bin\Debug\netcoreapp2.2\SharingService.Data.pdb
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Core\obj\Debug\netcoreapp2.2\SharingService.Core.csproj.CopyComplete

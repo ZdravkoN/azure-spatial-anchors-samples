@@ -2,14 +2,15 @@
 // Licensed under the MIT license.
 using Microsoft.AspNetCore.Mvc;
 using SharingService.Core.Services.Anchors;
+using SharingService.Data.Model;
+using SharingService.Web.Core.Model;
 using System.Collections.Generic;
-using System.IO;
-using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SharingService.Controllers
 {
-    [Route("api/anchors")]
+    [Route("api/[controller]")]
     [ApiController]
     public class AnchorsController : ControllerBase
     {
@@ -25,52 +26,60 @@ namespace SharingService.Controllers
         }
 
         // GET api/anchors/5
-        [HttpGet("{anchorNumber}")]
-        public async Task<ActionResult<string>> GetAsync(long anchorNumber)
+        [HttpGet("{anchorId}")]
+        public async Task<ActionResult<AnchorResponse>> GetAsync(int anchorId)
         {
-            // Get the key if present
-            try
+            var result = await _anchorService.GetAsync(anchorId);
+            if (result != null)
             {
-                return await _anchorService.GetAnchorKeyAsync(anchorNumber);
+                return FromDataModel(result);
             }
-            catch(KeyNotFoundException)
+            else
             {
-                return this.NotFound();
+                return NotFound();
             }
         }
 
-        // GET api/anchors/last
-        [HttpGet("last")]
-        public async Task<ActionResult<string>> GetAsync()
+        [HttpGet]
+        public async Task<ActionResult<List<AnchorResponse>>> GetAsync()
         {
-            // Get the last anchor
-            string anchorKey = await _anchorService.GetLastAnchorKeyAsync();
-
-            if (anchorKey == null)
-            {
-                return "";
-            }
-
-            return anchorKey;
+            var result = await _anchorService.GetAllAsync();
+            return result.Select(FromDataModel).ToList();
         }
 
         // POST api/anchors
         [HttpPost]
-        public async Task<ActionResult<long>> PostAsync()
+        public async Task<ActionResult<AnchorResponse>> PostAsync([FromBody] CreateAnchorRequest request)
         {
-            string anchorKey;
-            using (StreamReader reader = new StreamReader(this.Request.Body, Encoding.UTF8))
-            {
-                anchorKey = await reader.ReadToEndAsync();
-            }
+            // TODO: Handle model validation with filter
+            var model = ToDataModel(request);
 
-            if (string.IsNullOrWhiteSpace(anchorKey))
-            {
-                return this.BadRequest();
-            }
+            var result = await _anchorService.SaveAsync(model);
+            return FromDataModel(result);
+        }
 
-            // Set the key and return the anchor number
-            return await _anchorService.SetAnchorKeyAsync(anchorKey);
+        private AnchorResponse FromDataModel(Anchor anchor)
+        {
+            return new AnchorResponse
+            {
+                Id = anchor.Id,
+                Name = anchor.Name,
+                Key = anchor.Key,
+                Longitude = anchor.Longitude,
+                Latitude = anchor.Latitude
+            };
+        }
+
+        private Anchor ToDataModel(CreateAnchorRequest anchor)
+        {
+            // TODO: Change this with automapper
+            return new Anchor
+            {
+                Name = anchor.Name,
+                Key = anchor.Key,
+                Longitude = anchor.Longitude,
+                Latitude = anchor.Latitude
+            };
         }
     }
 }

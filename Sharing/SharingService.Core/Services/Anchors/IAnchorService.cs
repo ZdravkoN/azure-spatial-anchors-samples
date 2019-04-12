@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using SharingService.Data.Model;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SharingService.Core.Services.Anchors
 {
@@ -12,26 +14,26 @@ namespace SharingService.Core.Services.Anchors
         /// </summary>
         /// <param name="anchorId">The anchor identifier.</param>
         /// <returns>A <see cref="Task{System.Boolean}"/> containing true if the identifier is found; otherwise false.</returns>
-        Task<bool> ContainsAsync(long anchorId);
+        Task<bool> ContainsAsync(int anchorId);
 
         /// <summary>
-        /// Gets the anchor key asynchronously.
+        /// Gets the anchor asynchronously.
         /// </summary>
         /// <param name="anchorId">The anchor identifier.</param>
         /// <returns>The anchor key.</returns>
-        Task<string> GetAnchorKeyAsync(long anchorId);
+        Task<Anchor> GetAsync(int anchorId);
 
         /// <summary>
-        /// Gets the last anchor key asynchronously.
+        /// Gets a list of all anchors.
         /// </summary>
-        /// <returns>The last anchor key stored if available; otherwise, null.</returns>
-        Task<string> GetLastAnchorKeyAsync();
+        /// <returns>List of all anchors.</returns>
+        Task<List<Anchor>> GetAllAsync();
 
         /// <summary>
-        /// Sets the anchor key asynchronously.
+        /// Saves an anchor.
         /// </summary>
-        /// <param name="anchorKey">The anchor key.</param>
-        /// <returns>An <see cref="Task{System.Int64}"/> representing the anchor identifier.</returns>
-        Task<long> SetAnchorKeyAsync(string anchorKey);
+        /// <param name="anchor">Anchor to be saved.</param>
+        /// <returns>Saved anchor.</returns>
+        Task<Anchor> SaveAsync(Anchor anchor);
     }
 }

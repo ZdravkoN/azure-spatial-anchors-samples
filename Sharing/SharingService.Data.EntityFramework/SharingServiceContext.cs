@@ -23,6 +23,7 @@ namespace SharingService.Data.EntityFramework
             builder.ToTable("anchors").HasKey(t => t.Id);
             builder.Property(t => t.Id).HasColumnName("id").IsRequired();
             builder.Property(t => t.Name).HasColumnName("name").IsRequired();
+            builder.Property(t => t.Key).HasColumnName("key").IsRequired();
             builder.Property(t => t.Longitude).HasColumnName("longitude");
             builder.Property(t => t.Latitude).HasColumnName("latitude");
         }

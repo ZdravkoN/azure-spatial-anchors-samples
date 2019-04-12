@@ -11,7 +11,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SharingService.Core.Services.Anchors;
 using SharingService.Core.Services.Token;
-using SharingService.Data;
 using SharingService.Data.EntityFramework;
 using SharingService.Data.Service;
 using SharingService.Web.Core.Configuration;
@@ -35,6 +34,8 @@ namespace SharingService
             services
                 .AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddRouting(options => options.LowercaseUrls = true);
 
             var persistenceConfig = Configuration
                 .GetSection("Persistence")
@@ -79,7 +80,7 @@ namespace SharingService
 
             services.AddHttpContextAccessor();
 
-            services.AddSingleton<IAnchorService, MemoryAnchorCache>();
+            services.AddSingleton<IAnchorService, AnchorService>();
             services.AddHttpClient<ITokenService, TokenService>();
             services.AddSingleton<TokenServiceSettings>(_ =>
             {

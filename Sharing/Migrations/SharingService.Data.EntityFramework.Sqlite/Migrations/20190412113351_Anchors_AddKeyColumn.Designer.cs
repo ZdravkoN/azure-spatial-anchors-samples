@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SharingService.Data.EntityFramework;
 
 namespace SharingService.Data.EntityFramework.Sqlite.Migrations
 {
     [DbContext(typeof(SharingServiceContext))]
-    partial class SharingServiceContextModelSnapshot : ModelSnapshot
+    [Migration("20190412113351_Anchors_AddKeyColumn")]
+    partial class Anchors_AddKeyColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
