@@ -1,0 +1,14 @@
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Data.EntityFramework\bin\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.deps.json
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Data.EntityFramework\bin\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.dll
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Data.EntityFramework\obj\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.csproj.CoreCompileInputs.cache
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Data.EntityFramework\obj\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.AssemblyInfoInputs.cache
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Data.EntityFramework\obj\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.AssemblyInfo.cs
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Data.EntityFramework\obj\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.csprojAssemblyReference.cache
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Data.EntityFramework\bin\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.runtimeconfig.json
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Data.EntityFramework\bin\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.runtimeconfig.dev.json
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Data.EntityFramework\bin\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.pdb
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Data.EntityFramework\bin\Debug\netcoreapp2.2\SharingService.Data.dll
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Data.EntityFramework\bin\Debug\netcoreapp2.2\SharingService.Data.pdb
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Data.EntityFramework\obj\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.csproj.CopyComplete
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Data.EntityFramework\obj\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.dll
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Data.EntityFramework\obj\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.pdb

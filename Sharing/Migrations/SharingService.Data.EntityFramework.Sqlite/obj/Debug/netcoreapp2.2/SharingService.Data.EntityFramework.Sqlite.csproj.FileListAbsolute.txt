@@ -1,0 +1,14 @@
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\Migrations\SharingService.Data.EntityFramework.Sqlite\bin\Debug\netcoreapp2.2\SharingService.Data.dll
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\Migrations\SharingService.Data.EntityFramework.Sqlite\bin\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.dll
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\Migrations\SharingService.Data.EntityFramework.Sqlite\obj\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.Sqlite.csproj.CoreCompileInputs.cache
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\Migrations\SharingService.Data.EntityFramework.Sqlite\obj\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.Sqlite.AssemblyInfoInputs.cache
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\Migrations\SharingService.Data.EntityFramework.Sqlite\obj\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.Sqlite.AssemblyInfo.cs
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\Migrations\SharingService.Data.EntityFramework.Sqlite\bin\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.Sqlite.deps.json
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\Migrations\SharingService.Data.EntityFramework.Sqlite\bin\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.Sqlite.dll
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\Migrations\SharingService.Data.EntityFramework.Sqlite\bin\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.Sqlite.pdb
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\Migrations\SharingService.Data.EntityFramework.Sqlite\bin\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.pdb
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\Migrations\SharingService.Data.EntityFramework.Sqlite\bin\Debug\netcoreapp2.2\SharingService.Data.pdb
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\Migrations\SharingService.Data.EntityFramework.Sqlite\obj\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.Sqlite.csprojAssemblyReference.cache
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\Migrations\SharingService.Data.EntityFramework.Sqlite\obj\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.Sqlite.csproj.CopyComplete
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\Migrations\SharingService.Data.EntityFramework.Sqlite\obj\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.Sqlite.dll
+C:\workspace\unity\azure-spatial-anchors-samples\Sharing\Migrations\SharingService.Data.EntityFramework.Sqlite\obj\Debug\netcoreapp2.2\SharingService.Data.EntityFramework.Sqlite.pdb

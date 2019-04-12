@@ -8,13 +8,27 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Cosmos" Version="2.2.0-preview3-35497" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.IdentityModel.Clients.ActiveDirectory" Version="4.5.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
     <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Migrations\SharingService.Data.EntityFramework.Sqlite\SharingService.Data.EntityFramework.Sqlite.csproj" />
+    <ProjectReference Include="..\Migrations\SharingService.Data.EntityFramework.SqlServer\SharingService.Data.EntityFramework.SqlServer.csproj" />
     <ProjectReference Include="..\SharingService.Core\SharingService.Core.csproj" />
+    <ProjectReference Include="..\SharingService.Data.EntityFramework.Cosmos\SharingService.Data.EntityFramework.Cosmos.csproj" />
+    <ProjectReference Include="..\SharingService.Data.EntityFramework\SharingService.Data.EntityFramework.csproj" />
+    <ProjectReference Include="..\SharingService.Data\SharingService.Data.csproj" />
+    <ProjectReference Include="..\SharingService.Web.Core\SharingService.Web.Core.csproj" />
   </ItemGroup>
 
 </Project>

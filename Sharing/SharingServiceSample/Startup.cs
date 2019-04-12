@@ -6,11 +6,17 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SharingService.Core.Services.Anchors;
 using SharingService.Core.Services.Token;
 using SharingService.Data;
+using SharingService.Data.EntityFramework;
+using SharingService.Data.Service;
+using SharingService.Web.Core.Configuration;
 using Swashbuckle.AspNetCore.Swagger;
+using System;
 
 namespace SharingService
 {
@@ -26,14 +32,13 @@ namespace SharingService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services
+                .AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            // Register the anchor key cache.
-#if INMEMORY_DEMO
-            services.AddSingleton<IAnchorKeyCache>(new MemoryAnchorCache());
-#else
-            services.AddSingleton<IAnchorKeyCache>(new CosmosDbCache(this.Configuration.GetValue<string>("StorageConnectionString")));
-#endif
+            var persistenceConfig = Configuration
+                .GetSection("Persistence")
+                .Get<PersistenceConfig>();
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
@@ -41,6 +46,40 @@ namespace SharingService
                 c.SwaggerDoc("v1", new Info { Title = $"{nameof(SharingService)} API", Version = "v1" });
             });
 
+            switch (persistenceConfig.Provider)
+            {
+                case PersistenceProvider.Sqlite:
+                    services.AddDbContext<SharingServiceContext>(options => options.UseSqlite(
+                        persistenceConfig.ConnectionString,
+                        builder => builder.MigrationsAssembly("SharingService.Data.EntityFramework.Sqlite")
+                        ));
+                    services.AddTransient<IAnchorRepository, Data.EntityFramework.Service.AnchorRepository>();
+                    break;
+                case PersistenceProvider.SqlServer:
+                    services.AddDbContext<SharingServiceContext>(options => options.UseSqlServer(
+                        persistenceConfig.ConnectionString,
+                        builder => builder.MigrationsAssembly("SharingService.Data.EntityFramework.SqlServer")
+                        ));
+                    services.AddTransient<IAnchorRepository, Data.EntityFramework.Service.AnchorRepository>();
+                    break;
+                case PersistenceProvider.Cosmos:
+                    services.AddDbContext<SharingServiceContext>(options => options.UseCosmos(
+                        persistenceConfig.ConnectionString,
+                        persistenceConfig.AccessKey,
+                        persistenceConfig.DatabaseName));
+                    services.AddTransient<IAnchorRepository, Data.EntityFramework.Service.AnchorRepository>();
+                    break;
+                case PersistenceProvider.InMemory:
+                    services.AddDbContext<SharingServiceContext>(options => options.UseInMemoryDatabase());
+                    services.AddTransient<IAnchorRepository, Data.EntityFramework.Service.AnchorRepository>();
+                    break;
+                default:
+                    throw new InvalidOperationException("Cannot start the app without configuring a proper persistence context");
+            }
+
+            services.AddHttpContextAccessor();
+
+            services.AddSingleton<IAnchorService, MemoryAnchorCache>();
             services.AddHttpClient<ITokenService, TokenService>();
             services.AddSingleton<TokenServiceSettings>(_ =>
             {
@@ -81,6 +120,16 @@ namespace SharingService
 
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            var persistenceConfig = Configuration
+                .GetSection("Persistence")
+                .Get<PersistenceConfig>();
+
+            if (persistenceConfig.Provider == PersistenceProvider.Cosmos)
+            {
+                var context = app.ApplicationServices.GetService<SharingServiceContext>();
+                context.Database.EnsureCreated();
+            }                
         }
     }
 }
