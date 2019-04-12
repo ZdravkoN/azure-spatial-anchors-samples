@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SharingService.Core.Services.Token;
 using SharingService.Data;
 using Swashbuckle.AspNetCore.Swagger;
 
@@ -34,13 +35,23 @@ namespace SharingService
             services.AddSingleton<IAnchorKeyCache>(new CosmosDbCache(this.Configuration.GetValue<string>("StorageConnectionString")));
 #endif
 
-            // Add an http client
-            services.AddHttpClient<SpatialAnchorsTokenService>();
-
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = $"{nameof(SharingService)} API", Version = "v1" });
+            });
+
+            services.AddHttpClient<ITokenService, TokenService>();
+            services.AddSingleton<TokenServiceSettings>(_ =>
+            {
+                return new TokenServiceSettings
+                {
+                    SpatialAnchorsAccountId = "<Spatial Anchors Account Id>",
+                    SpatialAnchorsResource = "https://sts.mixedreality.azure.com",
+                    AadClientId = "<AAD client id>",
+                    AadClientKey = "<AAD client key>",
+                    AadTenantId = "<AAD Tenant ID>"
+                };
             });
         }
 

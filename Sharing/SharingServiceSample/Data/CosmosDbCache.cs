@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
+using SharingService.Core.Services.Anchors;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -23,7 +24,7 @@ namespace SharingService.Data
     }
 
 
-    internal class CosmosDbCache : IAnchorKeyCache
+    internal class CosmosDbCache : IAnchorService
     {
         /// <summary>
         /// Super basic partitioning scheme

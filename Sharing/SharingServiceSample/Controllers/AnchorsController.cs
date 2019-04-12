@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT license.
 using Microsoft.AspNetCore.Mvc;
-using SharingService.Data;
+using SharingService.Core.Services.Anchors;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -13,15 +13,15 @@ namespace SharingService.Controllers
     [ApiController]
     public class AnchorsController : ControllerBase
     {
-        private readonly IAnchorKeyCache anchorKeyCache;
+        private readonly IAnchorService _anchorService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AnchorsController"/> class.
         /// </summary>
         /// <param name="anchorKeyCache">The anchor key cache.</param>
-        public AnchorsController(IAnchorKeyCache anchorKeyCache)
+        public AnchorsController(IAnchorService anchorService)
         {
-            this.anchorKeyCache = anchorKeyCache;
+            _anchorService = anchorService;
         }
 
         // GET api/anchors/5
@@ -31,7 +31,7 @@ namespace SharingService.Controllers
             // Get the key if present
             try
             {
-                return await this.anchorKeyCache.GetAnchorKeyAsync(anchorNumber);
+                return await _anchorService.GetAnchorKeyAsync(anchorNumber);
             }
             catch(KeyNotFoundException)
             {
@@ -44,7 +44,7 @@ namespace SharingService.Controllers
         public async Task<ActionResult<string>> GetAsync()
         {
             // Get the last anchor
-            string anchorKey = await this.anchorKeyCache.GetLastAnchorKeyAsync();
+            string anchorKey = await _anchorService.GetLastAnchorKeyAsync();
 
             if (anchorKey == null)
             {
@@ -70,7 +70,7 @@ namespace SharingService.Controllers
             }
 
             // Set the key and return the anchor number
-            return await this.anchorKeyCache.SetAnchorKeyAsync(anchorKey);
+            return await _anchorService.SetAnchorKeyAsync(anchorKey);
         }
     }
 }

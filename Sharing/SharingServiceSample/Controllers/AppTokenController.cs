@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT license.
 using Microsoft.AspNetCore.Mvc;
-using SharingService.Data;
+using SharingService.Core.Services.Token;
 using System.Threading.Tasks;
 
 namespace SharingService.Controllers
@@ -10,20 +10,18 @@ namespace SharingService.Controllers
     [ApiController]
     public class AppTokenController : ControllerBase
     {
-        private SpatialAnchorsTokenService tokenService;
+        private readonly ITokenService _tokenService;
 
-        public AppTokenController(SpatialAnchorsTokenService tokenService)
+        public AppTokenController(ITokenService tokenService)
         {
-            this.tokenService = tokenService;
+            _tokenService = tokenService;
         }
 
         // GET api/apptoken
         [HttpGet]
         public Task<string> GetAsync()
         {
-            // TODO: Put your application-specific authorization and authentication logic here
-
-            return this.tokenService.RequestToken();
+            return _tokenService.RequestToken();
         }
     }
 }

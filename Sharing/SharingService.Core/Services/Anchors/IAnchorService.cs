@@ -1,13 +1,11 @@
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT license.
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
-namespace SharingService.Data
+namespace SharingService.Core.Services.Anchors
 {
     /// <summary>
     /// An interface representing an anchor key cache.
     /// </summary>
-    public interface IAnchorKeyCache
+    public interface IAnchorService
     {
         /// <summary>
         /// Determines whether the cache contains the specified anchor identifier.
