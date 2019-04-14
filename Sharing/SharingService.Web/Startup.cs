@@ -123,7 +123,6 @@ namespace SharingService.Web
                 c.RoutePrefix = string.Empty;
             });
 
-            app.UseHttpsRedirection();
             app.UseMvc();
 
             var persistenceConfig = Configuration
