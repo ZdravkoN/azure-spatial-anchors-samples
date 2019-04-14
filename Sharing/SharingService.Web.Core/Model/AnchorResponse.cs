@@ -1,4 +1,6 @@
-﻿namespace SharingService.Web.Core.Model
+﻿using System;
+
+namespace SharingService.Web.Core.Model
 {
     public class AnchorResponse
     {
@@ -7,5 +9,6 @@
         public string Key { get; set; }
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
+        public DateTime Timestamp { get; set; }
     }
 }

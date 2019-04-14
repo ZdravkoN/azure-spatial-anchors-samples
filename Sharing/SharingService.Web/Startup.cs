@@ -84,7 +84,7 @@ namespace SharingService.Web
 
             services.AddHttpContextAccessor();
 
-            services.AddSingleton<IAnchorService, AnchorService>();
+            services.AddTransient<IAnchorService, AnchorService>();
             services.AddHttpClient<ITokenService, TokenService>();
             services.AddSingleton<TokenServiceSettings>(_ =>
             {

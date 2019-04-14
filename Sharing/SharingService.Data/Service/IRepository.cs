@@ -13,8 +13,9 @@ namespace SharingService.Data.Service
         Task<List<TModel>> FilterAsync(Expression<Func<TModel, bool>> filter);
         Task<TModel> GetByIdAsync(int id);
         Task<List<TModel>> GetByIdsAsync(List<int> ids);
-        Task SaveAsync(TModel item);
-        Task EditAsync(TModel item);
+        Task<TModel> SaveAsync(TModel item);
         Task DeleteAsync(int id);
+        Task DeleteRangeAsync(List<int> idsToDelete);
+        Task DeleteAllAsync();
     }
 }

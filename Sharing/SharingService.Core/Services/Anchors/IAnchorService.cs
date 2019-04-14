@@ -35,5 +35,11 @@ namespace SharingService.Core.Services.Anchors
         /// <param name="anchor">Anchor to be saved.</param>
         /// <returns>Saved anchor.</returns>
         Task<Anchor> SaveAsync(Anchor anchor);
+
+        /// <summary>
+        /// Deletes all anchors.
+        /// </summary>
+        /// <returns>Nothing.</returns>
+        Task DeleteAllAsync();
     }
 }

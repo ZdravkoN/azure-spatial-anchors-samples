@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SharingService.Web.Core.Controller
+namespace SharingService.Web.Controller
 {
     [Route("api/[controller]")]
     [ApiController]

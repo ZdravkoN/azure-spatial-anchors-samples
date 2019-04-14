@@ -41,7 +41,7 @@ namespace SharingService.Data.EntityFramework.Service
             return GetDbSet().Where(p => ids.Contains(p.Id)).ToListAsync();
         }
 
-        public virtual async Task SaveAsync(TModel item)
+        public virtual async Task<TModel> SaveAsync(TModel item)
         {
             var toSave = item;
             if (item.Id > 0)
@@ -55,19 +55,9 @@ namespace SharingService.Data.EntityFramework.Service
             }
 
             await Context.SaveChangesAsync();
+            return toSave;
         }
-
-        public virtual async Task EditAsync(TModel item)
-        {
-            if (item.Id > 0)
-            {
-                var toSave = await GetByIdAsync(item.Id);
-                CopyProperties(item, toSave);
-            }
-
-            await Context.SaveChangesAsync();
-        }
-
+        
         public virtual async Task DeleteAsync(int id)
         {
             var item = await GetByIdAsync(id);
@@ -100,6 +90,20 @@ namespace SharingService.Data.EntityFramework.Service
             var queryable = GetDbSet().AsQueryable();
             queryable = queryable.Where(filter);
             return queryable.ToListAsync();
+        }
+
+        public async Task DeleteRangeAsync(List<int> idsToDelete)
+        {
+            var itemsToDelete = await GetByIdsAsync(idsToDelete);
+            GetDbSet().RemoveRange(itemsToDelete);
+            await Context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAllAsync()
+        {
+            var itemsToDelete = await AllAsync();
+            GetDbSet().RemoveRange(itemsToDelete);
+            await Context.SaveChangesAsync();
         }
     }
 }

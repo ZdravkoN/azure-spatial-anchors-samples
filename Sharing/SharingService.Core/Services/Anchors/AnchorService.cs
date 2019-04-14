@@ -19,6 +19,11 @@ namespace SharingService.Core.Services.Anchors
             return anchor != null;
         }
 
+        public async Task DeleteAllAsync()
+        {
+            await _anchorRepository.DeleteAllAsync();
+        }
+
         public async Task<List<Anchor>> GetAllAsync()
         {
             var result = await _anchorRepository.AllAsync();
@@ -33,8 +38,8 @@ namespace SharingService.Core.Services.Anchors
 
         public async Task<Anchor> SaveAsync(Anchor anchor)
         {
-            await _anchorRepository.SaveAsync(anchor);
-            return anchor;
+            var saved = await _anchorRepository.SaveAsync(anchor);
+            return saved;
         }
     }
 }
