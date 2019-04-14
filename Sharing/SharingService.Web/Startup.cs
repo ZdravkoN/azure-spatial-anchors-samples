@@ -16,6 +16,7 @@ using SharingService.Data.Service;
 using SharingService.Web.Core.Configuration;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
+using System.Reflection;
 
 namespace SharingService.Web
 {
@@ -31,9 +32,12 @@ namespace SharingService.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var coreAssembly = Assembly.Load("SharingService.Web.Core");
+
             services
                 .AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddApplicationPart(coreAssembly);
 
             services.AddRouting(options => options.LowercaseUrls = true);
 

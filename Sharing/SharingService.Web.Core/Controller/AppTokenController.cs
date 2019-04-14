@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using SharingService.Core.Services.Token;
 using System.Threading.Tasks;
 
-namespace SharingService.Web.Controllers
+namespace SharingService.Web.Core.Controller
 {
     [Route("api/[controller]")]
     [ApiController]

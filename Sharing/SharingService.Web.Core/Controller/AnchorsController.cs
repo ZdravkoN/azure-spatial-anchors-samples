@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft Corporation. All rights reserved.
+﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT license.
 using Microsoft.AspNetCore.Mvc;
 using SharingService.Core.Services.Anchors;
@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SharingService.Web.Controllers
+namespace SharingService.Web.Core.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
