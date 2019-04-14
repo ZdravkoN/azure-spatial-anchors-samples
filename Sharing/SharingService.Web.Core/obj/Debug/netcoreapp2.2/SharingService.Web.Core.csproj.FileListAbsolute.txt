@@ -1,8 +1,0 @@
-C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Web.Core\bin\Debug\netcoreapp2.2\SharingService.Web.Core.deps.json
-C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Web.Core\bin\Debug\netcoreapp2.2\SharingService.Web.Core.dll
-C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Web.Core\bin\Debug\netcoreapp2.2\SharingService.Web.Core.pdb
-C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Web.Core\obj\Debug\netcoreapp2.2\SharingService.Web.Core.csproj.CoreCompileInputs.cache
-C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Web.Core\obj\Debug\netcoreapp2.2\SharingService.Web.Core.AssemblyInfoInputs.cache
-C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Web.Core\obj\Debug\netcoreapp2.2\SharingService.Web.Core.AssemblyInfo.cs
-C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Web.Core\obj\Debug\netcoreapp2.2\SharingService.Web.Core.dll
-C:\workspace\unity\azure-spatial-anchors-samples\Sharing\SharingService.Web.Core\obj\Debug\netcoreapp2.2\SharingService.Web.Core.pdb
