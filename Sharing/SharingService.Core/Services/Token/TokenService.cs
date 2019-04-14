@@ -1,5 +1,4 @@
 ﻿using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -26,14 +25,14 @@ namespace SharingService.Core.Services.Token
             var clientCredential = new ClientCredential(
                 _settings.AadClientId,
                 _settings.AadClientKey);
-            AuthenticationContext authenticationContext = new AuthenticationContext(authority);
-            AuthenticationResult authenticationResult = await authenticationContext.AcquireTokenAsync(
+            var authenticationContext = new AuthenticationContext(authority);
+            var authenticationResult = await authenticationContext.AcquireTokenAsync(
                 _settings.SpatialAnchorsResource,
                 clientCredential);
             string aadAppToken = authenticationResult.AccessToken;
 
             // Use the AAD app token to request a Spatial Anchors token
-            using (HttpRequestMessage httpRequest = new HttpRequestMessage())
+            using (var httpRequest = new HttpRequestMessage())
             {
                 var spatialAnchorsAccountId = _settings.SpatialAnchorsAccountId;
                 Uri.TryCreate($"https://sts.mixedreality.azure.com/Accounts/{spatialAnchorsAccountId}/token", UriKind.Absolute, out Uri uri);
@@ -41,12 +40,10 @@ namespace SharingService.Core.Services.Token
                 httpRequest.RequestUri = uri;
                 httpRequest.Headers.Authorization = new AuthenticationHeaderValue("Bearer", aadAppToken);
 
-                using (HttpResponseMessage httpResponse = await _httpClient.SendAsync(httpRequest))
+                using (var httpResponse = await _httpClient.SendAsync(httpRequest))
                 {
-                    var responseContent = httpResponse.Content.ReadAsStringAsync().Result;
-                    JObject responseJson = JObject.Parse(responseContent);
-
-                    return responseJson["AccessToken"].ToObject<string>();
+                    var responseContent = await httpResponse.Content.ReadAsAsync<Token>();
+                    return responseContent.AccessToken;
                 }
             }
         }

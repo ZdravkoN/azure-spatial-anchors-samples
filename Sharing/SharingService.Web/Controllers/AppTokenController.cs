@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using SharingService.Core.Services.Token;
 using System.Threading.Tasks;
 
-namespace SharingService.Controllers
+namespace SharingService.Web.Controllers
 {
-    [Route("api/apptoken")]
+    [Route("api/[controller]")]
     [ApiController]
     public class AppTokenController : ControllerBase
     {

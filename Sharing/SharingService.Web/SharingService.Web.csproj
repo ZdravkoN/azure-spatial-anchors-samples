@@ -25,7 +25,6 @@
     <ProjectReference Include="..\Migrations\SharingService.Data.EntityFramework.Sqlite\SharingService.Data.EntityFramework.Sqlite.csproj" />
     <ProjectReference Include="..\Migrations\SharingService.Data.EntityFramework.SqlServer\SharingService.Data.EntityFramework.SqlServer.csproj" />
     <ProjectReference Include="..\SharingService.Core\SharingService.Core.csproj" />
-    <ProjectReference Include="..\SharingService.Data.EntityFramework.Cosmos\SharingService.Data.EntityFramework.Cosmos.csproj" />
     <ProjectReference Include="..\SharingService.Data.EntityFramework\SharingService.Data.EntityFramework.csproj" />
     <ProjectReference Include="..\SharingService.Data\SharingService.Data.csproj" />
     <ProjectReference Include="..\SharingService.Web.Core\SharingService.Web.Core.csproj" />

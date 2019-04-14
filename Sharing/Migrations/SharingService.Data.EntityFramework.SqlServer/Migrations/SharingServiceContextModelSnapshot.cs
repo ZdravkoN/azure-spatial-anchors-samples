@@ -40,6 +40,8 @@ namespace SharingService.Data.EntityFramework.SqlServer.Migrations
                         .IsRequired()
                         .HasColumnName("name");
 
+                    b.Property<DateTime>("Timestamp");
+
                     b.HasKey("Id");
 
                     b.ToTable("anchors");

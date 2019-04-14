@@ -17,7 +17,7 @@ using SharingService.Web.Core.Configuration;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 
-namespace SharingService
+namespace SharingService.Web
 {
     public class Startup
     {

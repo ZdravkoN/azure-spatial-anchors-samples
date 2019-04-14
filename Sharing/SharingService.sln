@@ -3,23 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharingService", "SharingService.csproj", "{8EDA5F99-3C22-49D8-9F45-A4561C24AD04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharingService.Web", "SharingService.Web\SharingService.Web.csproj", "{8EDA5F99-3C22-49D8-9F45-A4561C24AD04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharingService.Core", "..\SharingService.Core\SharingService.Core.csproj", "{79DEBB12-53DA-49C1-81A2-38E642629138}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharingService.Core", "SharingService.Core\SharingService.Core.csproj", "{79DEBB12-53DA-49C1-81A2-38E642629138}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharingService.Data", "..\SharingService.Data\SharingService.Data.csproj", "{1851D1EE-386D-41CE-AA03-657C447CC644}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharingService.Data", "SharingService.Data\SharingService.Data.csproj", "{1851D1EE-386D-41CE-AA03-657C447CC644}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharingService.Data.EntityFramework", "..\SharingService.Data.EntityFramework\SharingService.Data.EntityFramework.csproj", "{47B280E0-A50D-427C-BED9-57A5B249FE62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharingService.Data.EntityFramework", "SharingService.Data.EntityFramework\SharingService.Data.EntityFramework.csproj", "{47B280E0-A50D-427C-BED9-57A5B249FE62}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrations", "Migrations", "{66CFF5F2-F1E5-43D7-B66C-B01BB1472AE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharingService.Web.Core", "..\SharingService.Web.Core\SharingService.Web.Core.csproj", "{85C5BB69-BC1A-440A-8926-9973C6A88500}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharingService.Web.Core", "SharingService.Web.Core\SharingService.Web.Core.csproj", "{85C5BB69-BC1A-440A-8926-9973C6A88500}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharingService.Data.EntityFramework.Sqlite", "..\Migrations\SharingService.Data.EntityFramework.Sqlite\SharingService.Data.EntityFramework.Sqlite.csproj", "{329B59AB-8E71-4823-9884-E6454EDB507F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharingService.Data.EntityFramework.Sqlite", "Migrations\SharingService.Data.EntityFramework.Sqlite\SharingService.Data.EntityFramework.Sqlite.csproj", "{329B59AB-8E71-4823-9884-E6454EDB507F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharingService.Data.EntityFramework.SqlServer", "..\Migrations\SharingService.Data.EntityFramework.SqlServer\SharingService.Data.EntityFramework.SqlServer.csproj", "{FB403E86-7E5F-4742-B52E-C01A9A1619F5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharingService.Data.EntityFramework.Cosmos", "..\SharingService.Data.EntityFramework.Cosmos\SharingService.Data.EntityFramework.Cosmos.csproj", "{0D08118A-02D5-42D9-9A0A-C2C776BCCA09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharingService.Data.EntityFramework.SqlServer", "Migrations\SharingService.Data.EntityFramework.SqlServer\SharingService.Data.EntityFramework.SqlServer.csproj", "{FB403E86-7E5F-4742-B52E-C01A9A1619F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,10 +53,6 @@ Global
 		{FB403E86-7E5F-4742-B52E-C01A9A1619F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB403E86-7E5F-4742-B52E-C01A9A1619F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB403E86-7E5F-4742-B52E-C01A9A1619F5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0D08118A-02D5-42D9-9A0A-C2C776BCCA09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0D08118A-02D5-42D9-9A0A-C2C776BCCA09}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0D08118A-02D5-42D9-9A0A-C2C776BCCA09}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0D08118A-02D5-42D9-9A0A-C2C776BCCA09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,7 +60,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{329B59AB-8E71-4823-9884-E6454EDB507F} = {66CFF5F2-F1E5-43D7-B66C-B01BB1472AE0}
 		{FB403E86-7E5F-4742-B52E-C01A9A1619F5} = {66CFF5F2-F1E5-43D7-B66C-B01BB1472AE0}
-		{0D08118A-02D5-42D9-9A0A-C2C776BCCA09} = {66CFF5F2-F1E5-43D7-B66C-B01BB1472AE0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F2EB465F-F217-420E-AD3C-23009A6CAC39}

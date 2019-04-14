@@ -3,7 +3,7 @@
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace SharingService
+namespace SharingService.Web
 {
     public static class Program
     {
