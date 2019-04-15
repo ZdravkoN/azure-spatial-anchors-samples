@@ -30,4 +30,10 @@
     <ProjectReference Include="..\SharingService.Web.Core\SharingService.Web.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="storage-service.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -6,6 +6,7 @@ namespace Microsoft.Azure.SpatialAnchors.Unity.Samples
 {
     public class FollowUserGaze : MonoBehaviour
     {
+        public float DistanceFromCenter = 300;
         void Start()
         {
             transform.localScale = Vector3.one * .25f;
@@ -23,10 +24,10 @@ namespace Microsoft.Azure.SpatialAnchors.Unity.Samples
 
             RaycastHit hitInfo;
 
-            if (!Physics.Raycast(headPosition, gazeDirection, out hitInfo, 5.0f, 1 << 30))
+            if (!Physics.Raycast(headPosition, gazeDirection, out hitInfo, 5.0f + DistanceFromCenter, 1 << 30))
             {
                 // If the raycast did not hit the canvas, update canvas position
-                Vector3 nextPos = headPosition + gazeDirection * 2 + Vector3.down * 0.1f;
+                Vector3 nextPos = headPosition + gazeDirection * DistanceFromCenter;
                 transform.position = Vector3.Lerp(transform.position, nextPos, 1f / 60f);
                 transform.LookAt(mainCamera.transform);
                 transform.Rotate(Vector3.up, 180);
