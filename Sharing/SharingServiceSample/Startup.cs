@@ -6,9 +6,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SharingService.Data;
+using SharingService.Data.Model;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace SharingService
@@ -28,10 +30,15 @@ namespace SharingService
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // Register the anchor key cache.
+
+            services.AddDbContext<AnchorsDbContext>(options => options.UseSqlite(
+                        "Filename=./storage-service.db"
+                        ));
+            services.AddTransient<IAnchorKeyCache, FileSystemAnchorCache>();
 #if INMEMORY_DEMO
-            services.AddSingleton<IAnchorKeyCache>(new MemoryAnchorCache());
+            //services.AddSingleton<IAnchorKeyCache>(new MemoryAnchorCache());
 #else
-            services.AddSingleton<IAnchorKeyCache>(new CosmosDbCache(this.Configuration.GetValue<string>("StorageConnectionString")));
+            //services.AddSingleton<IAnchorKeyCache>(new CosmosDbCache(this.Configuration.GetValue<string>("StorageConnectionString")));
 #endif
 
             // Add an http client
@@ -68,7 +75,6 @@ namespace SharingService
                 c.RoutePrefix = string.Empty;
             });
 
-            app.UseHttpsRedirection();
             app.UseMvc();
         }
     }

@@ -31,7 +31,7 @@ namespace SharingService.Controllers
             // Get the key if present
             try
             {
-                return await this.anchorKeyCache.GetAnchorKeyAsync(anchorNumber);
+                return await anchorKeyCache.GetAnchorKeyAsync(anchorNumber);
             }
             catch(KeyNotFoundException)
             {
