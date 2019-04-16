@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
+using SharingService.Data.Model;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -164,6 +165,11 @@ namespace SharingService.Data
             await this.dbCache.ExecuteAsync(TableOperation.Insert(anchorEntity));
 
             return newAnchorNumberIndex;
+        }
+
+        public async Task<IEnumerable<Anchor>> AllAsync()
+        {
+            return new List<Anchor>();
         }
     }
 }

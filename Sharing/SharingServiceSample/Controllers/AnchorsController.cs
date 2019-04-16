@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 using Microsoft.AspNetCore.Mvc;
 using SharingService.Data;
+using SharingService.Data.Model;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -22,6 +23,13 @@ namespace SharingService.Controllers
         public AnchorsController(IAnchorKeyCache anchorKeyCache)
         {
             this.anchorKeyCache = anchorKeyCache;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Anchor>>> GetAllAsync()
+        {
+            var result = await anchorKeyCache.AllAsync();
+            return Ok(result);
         }
 
         // GET api/anchors/5

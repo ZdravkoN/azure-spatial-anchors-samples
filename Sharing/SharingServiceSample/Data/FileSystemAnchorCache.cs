@@ -1,4 +1,5 @@
 ﻿using SharingService.Data.Model;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -6,11 +7,18 @@ namespace SharingService.Data
 {
     public class FileSystemAnchorCache : IAnchorKeyCache
     {
-        private AnchorsDbContext _context;
+        private readonly AnchorsDbContext _context;
         public FileSystemAnchorCache(AnchorsDbContext context)
         {
             _context = context;
         }
+
+        public async Task<IEnumerable<Anchor>> AllAsync()
+        {
+            var result = _context.Anchors.ToList();
+            return result;
+        }
+
         public async Task<bool> ContainsAsync(long anchorId)
         {
             var id = (int)anchorId;

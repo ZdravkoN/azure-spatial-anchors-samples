@@ -1,5 +1,7 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT license.
+using SharingService.Data.Model;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SharingService.Data
@@ -35,5 +37,11 @@ namespace SharingService.Data
         /// <param name="anchorKey">The anchor key.</param>
         /// <returns>An <see cref="Task{System.Int64}"/> representing the anchor identifier.</returns>
         Task<long> SetAnchorKeyAsync(string anchorKey);
+
+        /// <summary>
+        /// Returns all of the stored spatial anchors.
+        /// </summary>
+        /// <returns></returns>
+        Task<IEnumerable<Anchor>> AllAsync();
     }
 }

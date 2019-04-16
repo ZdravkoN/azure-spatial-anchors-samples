@@ -250,9 +250,11 @@ namespace Microsoft.Azure.SpatialAnchors.Unity.Samples
                 // HoloLens: The position will be set based on the unityARUserAnchor that was located.
 
                 this.SpawnOrMoveCurrentAnchoredObject(anchorPose.position, anchorPose.rotation);
+                _anchorNumberToFind = anchorNumber;
                 if (_runningOnHoloLens)
                 {
-                    this.AttachTextMesh(this.spawnedObject, null);
+                    this.AttachTextMesh(this.spawnedObject, anchorNumber);
+                    //this.AttachTextMesh(this.spawnedObject, null);
                 }
                 else
                 {

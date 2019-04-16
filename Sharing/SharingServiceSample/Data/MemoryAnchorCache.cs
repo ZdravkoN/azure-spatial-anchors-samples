@@ -1,6 +1,7 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT license.
 using Microsoft.Extensions.Caching.Memory;
+using SharingService.Data.Model;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -26,6 +27,11 @@ namespace SharingService.Data
         /// The anchor numbering index.
         /// </summary>
         private long anchorNumberIndex = -1;
+
+        public async Task<IEnumerable<Anchor>> AllAsync()
+        {
+            return new List<Anchor>();
+        }
 
         /// <summary>
         /// Determines whether the cache contains the specified anchor identifier.

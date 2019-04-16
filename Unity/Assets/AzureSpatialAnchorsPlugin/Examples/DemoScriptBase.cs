@@ -324,8 +324,9 @@ namespace Microsoft.Azure.SpatialAnchors.Unity.Samples
             }
 
             // In this sample app we delete the cloud anchor explicitly, but here we show how to set an anchor to expire automatically
-            localCloudAnchor.Expiration = DateTimeOffset.Now.AddDays(7);
-
+            // ZN: Disabled autodelete
+            //localCloudAnchor.Expiration = DateTimeOffset.Now.AddDays(7);
+            
             Task.Run(async () =>
             {
                 while (!this.CloudManager.EnoughDataToCreate)
