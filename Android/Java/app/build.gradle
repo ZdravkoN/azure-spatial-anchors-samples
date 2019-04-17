@@ -5,7 +5,7 @@ def azureSpatialAnchorsSdkVersion = '1.0.2'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.microsoft.sampleandroid"
+        applicationId "com.netcetera.azurespatialanchors"
         minSdkVersion 24
         targetSdkVersion 27
         versionCode 1

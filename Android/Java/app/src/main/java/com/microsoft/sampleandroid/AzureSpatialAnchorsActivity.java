@@ -57,10 +57,11 @@ public class AzureSpatialAnchorsActivity extends AppCompatActivity
     private static final double MIN_OPENGL_VERSION = 3.0;
 
     // Set this string to the account ID provided for the Azure Spatial Service resource.
-    private static final String SpatialAnchorsAccountId = "Set me";
+    private static final String SpatialAnchorsAccountId = "341038a1-fa3c-426f-bd20-81f171e62261";
 
     // Set this string to the account key provided for the Azure Spatial Service resource.
-    private static final String SpatialAnchorsAccountKey = "Set me";
+    private static final String SpatialAnchorsAccountKey
+            = "lhbcuItyxODwnoA+F+2bqtRWrSN7mIeC8xm7kqUpnbc=";
 
     private static final int NumberOfNearbyAnchors = 3;
     private static Material ReadyColor;
@@ -417,7 +418,7 @@ public class AzureSpatialAnchorsActivity extends AppCompatActivity
                 cal.setTime(now);
                 cal.add(Calendar.DATE, 7);
                 Date oneWeekFromNow = cal.getTime();
-                mAnchorVisuals.get("").cloudAnchor.setExpiration(oneWeekFromNow);
+                //mAnchorVisuals.get("").cloudAnchor.setExpiration(oneWeekFromNow);
 
                 buttonText = ("Save Cloud Anchor (once at 100%)");
                 currentDemoStep = DemoStep.DemoStepSaveCloudAnchor;

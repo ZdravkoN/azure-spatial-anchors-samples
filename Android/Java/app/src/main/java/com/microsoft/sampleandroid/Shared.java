@@ -35,7 +35,7 @@ public class Shared extends AzureSpatialAnchorsActivity
     }
 
     // Set this string to the URL created when publishing your Shared anchor service in the Sharing sample.
-    private static final String SharingAnchorsServiceUrl = "";
+    private static final String SharingAnchorsServiceUrl = "https://ncaspatialanchors.azurewebsites.net/api/anchors";
 
     private TextView mTextView;
     private Button mLocateButton;
